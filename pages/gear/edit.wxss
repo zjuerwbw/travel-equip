@@ -1,0 +1,9 @@
+.picker-value { color: #333; }
+.picker-value { min-height: 40rpx; }
+.unit-toggle {
+  margin-left: 16rpx; display: flex; border: 2rpx solid #2f7d4f;
+  border-radius: 12rpx; overflow: hidden; height: 76rpx;
+}
+.u-opt { padding: 0 28rpx; display: flex; align-items: center; color: #2f7d4f; font-size: 26rpx; }
+.u-opt.on { background: #2f7d4f; color: #fff; }
+.remark { height: 140rpx; width: auto; }

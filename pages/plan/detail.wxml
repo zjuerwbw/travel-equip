@@ -1,0 +1,41 @@
+<view class="card" wx:if="{{p}}">
+  <view class="row between">
+    <view class="d-name">{{p.name}}</view>
+    <view class="tag orange">{{statusText}}</view>
+  </view>
+  <view class="d-grid">
+    <view class="d-cell"><text class="muted">类型</text><text>{{p.type}}</text></view>
+    <view class="d-cell"><text class="muted">目的地</text><text>{{p.destination}}</text></view>
+    <view class="d-cell"><text class="muted">海拔</text><text>{{p.altitude}}</text></view>
+    <view class="d-cell"><text class="muted">日期</text><text>{{p.date}}</text></view>
+    <view class="d-cell"><text class="muted">出发时间</text><text>{{p.time}}</text></view>
+    <view class="d-cell"><text class="muted">天数</text><text>{{p.days}} 天</text></view>
+    <view class="d-cell"><text class="muted">预计气温</text><text>{{p.temp}}</text></view>
+    <view class="d-cell"><text class="muted">负重上限</text><text>{{p.maxLoad}}</text></view>
+  </view>
+  <view wx:if="{{p.remark}}" class="d-remark">{{p.remark}}</view>
+</view>
+
+<view class="card row between" bindtap="goPacking">
+  <view>
+    <view class="d-sec">🎒 打包清单</view>
+    <view class="muted">{{itemText}} · 总重 {{weight}}</view>
+  </view>
+  <view class="arrow">›</view>
+</view>
+
+<view class="card row between" bindtap="goReview" wx:if="{{canReview}}">
+  <view>
+    <view class="d-sec">📝 重量复盘</view>
+    <view class="muted">对比计划与实际携带重量</view>
+  </view>
+  <view class="arrow">›</view>
+</view>
+
+<view class="card" wx:if="{{statusText !== '已复盘'}}">
+  <view class="btn" wx:if="{{canStart}}" bindtap="onAction" data-action="start">开始行程</view>
+  <view class="btn" wx:if="{{canFinish}}" bindtap="onAction" data-action="finish">完成行程</view>
+  <view class="btn btn-plain" wx:if="{{canEdit}}" bindtap="goEdit">编辑计划</view>
+  <view class="btn btn-warn" wx:if="{{canCancel}}" bindtap="onAction" data-action="cancel">取消计划</view>
+  <view class="btn btn-danger" wx:if="{{canDelete}}" bindtap="onAction" data-action="delete">删除计划</view>
+</view>

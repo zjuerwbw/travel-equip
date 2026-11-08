@@ -1,0 +1,7 @@
+.d-name { font-size: 34rpx; font-weight: 700; margin-bottom: 16rpx; }
+.d-grid { display: flex; flex-wrap: wrap; }
+.d-cell { width: 50%; margin-bottom: 14rpx; display: flex; flex-direction: column; }
+.d-cell text { line-height: 1.5; }
+.d-remark { border-top: 2rpx solid #f2f2f2; padding-top: 16rpx; color: #666; font-size: 26rpx; }
+.d-sec { font-size: 30rpx; font-weight: 600; margin-bottom: 8rpx; }
+.arrow { font-size: 44rpx; color: #ccc; }

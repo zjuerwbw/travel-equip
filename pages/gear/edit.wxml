@@ -1,0 +1,59 @@
+<view class="card">
+  <text class="label">装备名称 *</text>
+  <input class="input" placeholder="如：MSR PocketRocket 2 炉头" value="{{name}}" bindinput="onInput" data-field="name" />
+
+  <text class="label">一级分类 *</text>
+  <picker range="{{catNames}}" bindchange="onCat">
+    <view class="input picker-value">{{catIndex > -1 ? catNames[catIndex] : '请选择分类'}}</view>
+  </picker>
+
+  <block wx:if="{{subNames.length}}">
+    <text class="label">二级分类</text>
+    <picker range="{{subNames}}" bindchange="onSub">
+      <view class="input picker-value">{{subIndex > -1 ? subNames[subIndex] : '请选择（可选）'}}</view>
+    </picker>
+  </block>
+
+  <view class="row">
+    <view class="col" style="margin-right:16rpx">
+      <text class="label">品牌</text>
+      <input class="input" placeholder="选填" value="{{brand}}" bindinput="onInput" data-field="brand" />
+    </view>
+    <view class="col">
+      <text class="label">型号</text>
+      <input class="input" placeholder="选填" value="{{model}}" bindinput="onInput" data-field="model" />
+    </view>
+  </view>
+
+  <text class="label">重量 *（内部按克记录）</text>
+  <view class="row">
+    <input class="input grow" type="digit" placeholder="如 1250" value="{{weightInput}}" bindinput="onInput" data-field="weightInput" />
+    <view class="unit-toggle" bindtap="onUnit">
+      <view class="u-opt {{unit === 'g' ? 'on' : ''}}">g</view>
+      <view class="u-opt {{unit === 'kg' ? 'on' : ''}}">kg</view>
+    </view>
+  </view>
+
+  <view class="row" style="margin-top:24rpx">
+    <view class="col" style="margin-right:16rpx">
+      <text class="label" style="margin-top:0">数量 *</text>
+      <input class="input" type="number" value="{{qty}}" bindinput="onInput" data-field="qty" />
+    </view>
+    <view class="col">
+      <text class="label" style="margin-top:0">是否消耗品</text>
+      <view class="input row between" style="height:80rpx;box-sizing:border-box">
+        <text class="muted">{{isConsumable ? '是（食物/水/燃料等）' : '否'}}</text>
+        <switch checked="{{isConsumable}}" bindchange="onConsumable" color="#2f7d4f" />
+      </view>
+    </view>
+  </view>
+
+  <text class="label">备注</text>
+  <textarea class="input remark" placeholder="如：舒适温标 -5℃、气罐需另购" value="{{remark}}" bindinput="onInput" data-field="remark" maxlength="200" />
+</view>
+
+<view class="card">
+  <view class="btn" bindtap="onSave">保存</view>
+  <view class="btn btn-warn" wx:if="{{isEdit && !archived}}" bindtap="onArchive">归档（报废/转卖/遗失）</view>
+  <view class="btn btn-danger" wx:if="{{isEdit}}" bindtap="onDelete">删除</view>
+</view>

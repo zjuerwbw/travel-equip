@@ -1,0 +1,11 @@
+.r-title { font-size: 32rpx; font-weight: 700; margin-bottom: 16rpx; }
+.r-sums { margin-bottom: 12rpx; }
+.r-num { font-size: 30rpx; font-weight: 700; color: #2f7d4f; margin-top: 4rpx; }
+.r-num.diff { color: #d97706; }
+.item-card { padding: 22rpx 24rpx; }
+.i-name { font-size: 28rpx; font-weight: 600; }
+.i-ops { margin-top: 14rpx; }
+.mini-input {
+  width: 90rpx; background: #f5f6f8; border-radius: 8rpx;
+  padding: 8rpx 12rpx; margin: 0 8rpx; text-align: center; font-size: 26rpx;
+}

@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/gear/gear",
+    "pages/gear/edit",
+    "pages/plan/plan",
+    "pages/plan/edit",
+    "pages/plan/detail",
+    "pages/packing/packing",
+    "pages/review/review",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2f7d4f",
+    "navigationBarTitleText": "户外装备管家",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f6f8",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#2f7d4f",
+    "backgroundColor": "#ffffff",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/gear/gear", "text": "装备库" },
+      { "pagePath": "pages/plan/plan", "text": "计划" },
+      { "pagePath": "pages/mine/mine", "text": "我的" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

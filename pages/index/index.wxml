@@ -1,0 +1,47 @@
+<view class="hello card">
+  <view class="hello-title">户外装备管家 ⛰️</view>
+  <view class="muted">装备数字化 → 计划打包 → 重量复盘</view>
+</view>
+
+<view class="stats row">
+  <view class="stat card">
+    <view class="stat-num">{{gearCount}}</view>
+    <view class="muted">装备件数</view>
+  </view>
+  <view class="stat card">
+    <view class="stat-num">{{totalWeight}}</view>
+    <view class="muted">装备总重</view>
+  </view>
+  <view class="stat card">
+    <view class="stat-num">{{planCount}}</view>
+    <view class="muted">出行次数</view>
+  </view>
+</view>
+
+<view class="section-title">即将出发</view>
+<view class="card" wx:if="{{upcoming}}" bindtap="goUpcoming">
+  <view class="row between">
+    <view class="plan-name">{{upcoming.name}}</view>
+    <view class="tag">{{upcoming.statusText}}</view>
+  </view>
+  <view class="muted" style="margin-top:12rpx">📍 {{upcoming.destination}}</view>
+  <view class="muted">📅 {{upcoming.date}}</view>
+  <view class="row between" style="margin-top:12rpx" wx:if="{{upcomingWeight}}">
+    <text class="muted">已打包总重</text>
+    <text class="weight">{{upcomingWeight}}</text>
+  </view>
+</view>
+<view class="card empty-card" wx:else bindtap="goPlan">
+  <text class="muted">暂无即将出发的计划，点击创建 →</text>
+</view>
+
+<view class="quick row">
+  <view class="quick-btn card" bindtap="goGear">
+    <view class="q-icon">🎒</view>
+    <view>记装备</view>
+  </view>
+  <view class="quick-btn card" bindtap="goPlan">
+    <view class="q-icon">📋</view>
+    <view>建计划</view>
+  </view>
+</view>

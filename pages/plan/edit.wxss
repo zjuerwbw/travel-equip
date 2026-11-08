@@ -1,0 +1,3 @@
+.alt-warn { color: #d97706; font-size: 24rpx; margin-top: 8rpx; }
+.remark { height: 140rpx; width: auto; }
+.readonly { color: #2f7d4f; font-weight: 600; }

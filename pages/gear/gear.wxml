@@ -1,0 +1,32 @@
+<view class="search-bar">
+  <input class="input" placeholder="搜索名称 / 品牌 / 型号 / 备注" value="{{keyword}}" bindinput="onSearch" />
+</view>
+
+<scroll-view scroll-x class="cat-bar">
+  <view class="chip {{activeCat === item.key ? 'active' : ''}}"
+    wx:for="{{cats}}" wx:key="key" bindtap="onCat" data-key="{{item.key}}">
+    {{item.icon}} {{item.name}}
+  </view>
+</scroll-view>
+
+<view wx:if="{{!list.length}}" class="empty">
+  <text class="icon">🎒</text>
+  还没有装备，点击右下角 + 录入第一件
+</view>
+
+<view class="card gear-item row" wx:for="{{list}}" wx:key="id" bindtap="onItem" data-id="{{item.id}}">
+  <view class="g-icon">{{item.catIcon}}</view>
+  <view class="col">
+    <view class="row">
+      <text class="g-name">{{item.name}}</text>
+      <text class="tag gray" wx:if="{{item.archived}}">已归档</text>
+    </view>
+    <view class="muted">{{item.catName}} {{item.sub ? '· ' + item.sub : ''}}</view>
+  </view>
+  <view class="g-right">
+    <view class="weight">{{item.weight}}</view>
+    <view class="muted">× {{item.qty}}</view>
+  </view>
+</view>
+
+<view class="fab" bindtap="onAdd">+</view>

@@ -1,0 +1,110 @@
+<view class="card" wx:if="{{!groups.length}}">
+  <view class="empty">
+    <text class="icon">🎒</text>
+    还没有打包装备，点击下方按钮从装备库勾选
+  </view>
+</view>
+
+<view class="card g-card" wx:for="{{groups}}" wx:for-item="g" wx:key="key">
+  <view class="row between g-head">
+    <text class="g-title">{{g.icon}} {{g.name}}</text>
+    <text class="weight">{{g.weightStr}}</text>
+  </view>
+  <view class="item" wx:for="{{g.items}}" wx:for-item="it" wx:key="itemId">
+    <view class="row between">
+      <view class="row">
+        <text class="i-name">{{it.name}}</text>
+        <text class="tag">{{it.tagName}}</text>
+        <text class="tag gray" wx:if="{{it.consumable}}">消耗</text>
+      </view>
+      <text class="i-del" bindtap="onDelItem" data-id="{{it.itemId}}">✕</text>
+    </view>
+    <view class="row i-ops">
+      <text class="muted">数量</text>
+      <input class="mini-input" type="number" value="{{it.qty}}" bindblur="onQty" data-id="{{it.itemId}}" />
+      <text class="muted">单重g</text>
+      <input class="mini-input" type="digit" value="{{it.weightG}}" bindblur="onWeight" data-id="{{it.itemId}}" />
+      <text class="weight">= {{it.subtotal}}</text>
+    </view>
+    <view class="row i-ops2">
+      <view class="chip {{it.carryType === 'worn' ? 'active' : ''}}" bindtap="onCarry" data-id="{{it.itemId}}">{{it.carryText}}</view>
+      <picker range="{{['必需','可选','备用']}}" bindchange="onTag" data-id="{{it.itemId}}">
+        <view class="chip">🏷 {{it.tagName}}</view>
+      </picker>
+      <view class="chip {{it.consumable ? 'active' : ''}}" bindtap="onConsumable" data-id="{{it.itemId}}">
+        {{it.consumable ? '✓ 计入消耗' : '非消耗'}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="card" wx:if="{{summary.over}}">
+  <view class="over-warn">⚠️ 总重 {{summary.total}} 已超过负重上限 {{summary.maxLoad}}，建议减重！</view>
+</view>
+
+<!-- 底部汇总 -->
+<view class="summary-bar">
+  <view class="row between" bindtap="toggleCats">
+    <view>
+      <text class="s-label">总重</text>
+      <text class="s-total">{{summary.total}}</text>
+    </view>
+    <view class="s-right">
+      <view><text class="s-label">基础重量</text><text class="s-base">{{summary.base}}</text></view>
+      <view><text class="s-label">消耗品</text><text class="s-consum">{{summary.consumable}}</text></view>
+    </view>
+  </view>
+  <view wx:if="{{showCats}}" class="cats">
+    <view class="cat-row" wx:for="{{summary.cats}}" wx:key="key">
+      <text class="cat-name">{{item.name}}</text>
+      <view class="cat-bar-bg"><view class="cat-bar-fill" style="width:{{item.pct}}%"></view></view>
+      <text class="cat-w">{{item.weightStr}} · {{item.pct}}%</text>
+    </view>
+  </view>
+</view>
+
+<view class="actions">
+  <view class="btn" bindtap="openPicker">＋ 从装备库添加</view>
+  <view class="btn btn-plain" bindtap="openTemp">＋ 直接添加消耗品（食物/水）</view>
+</view>
+
+<!-- 装备选择弹层 -->
+<view class="mask" wx:if="{{showPicker}}" bindtap="closePicker">
+  <view class="sheet" catchtap="stop">
+    <view class="row between" style="margin-bottom:16rpx">
+      <text class="sheet-title">选择装备</text>
+      <text bindtap="closePicker" class="i-del">✕</text>
+    </view>
+    <input class="input" placeholder="搜索装备" value="{{pickerKeyword}}" bindinput="onPickerInput" />
+    <scroll-view scroll-y class="sheet-list">
+      <block wx:for="{{pickerList}}" wx:for-item="cat" wx:key="key">
+        <view class="picker-cat">{{cat.name}}</view>
+        <view class="picker-item row between" wx:for="{{cat.gears}}" wx:for-item="g" wx:key="id"
+          bindtap="onPickGear" data-id="{{g.id}}">
+          <view>
+            <view class="i-name">{{g.name}}</view>
+            <view class="muted">库存数量 {{g.qty}}</view>
+          </view>
+          <text class="weight">{{g.weightG}}g</text>
+        </view>
+      </block>
+      <view wx:if="{{!pickerList.length}}" class="empty">无匹配装备</view>
+    </scroll-view>
+  </view>
+</view>
+
+<!-- 临时消耗品弹层 -->
+<view class="mask" wx:if="{{showTemp}}" bindtap="closeTemp">
+  <view class="sheet small" catchtap="stop">
+    <view class="row between" style="margin-bottom:16rpx">
+      <text class="sheet-title">添加消耗品</text>
+      <text bindtap="closeTemp" class="i-del">✕</text>
+    </view>
+    <input class="input" placeholder="名称，如：晚餐冻干 ×1" value="{{tempName}}" bindinput="onTempInput" data-field="tempName" />
+    <view class="row" style="margin-top:16rpx">
+      <input class="input grow" type="digit" placeholder="单重（g）" value="{{tempWeight}}" bindinput="onTempInput" data-field="tempWeight" />
+      <input class="input" style="width:160rpx;margin-left:16rpx" type="number" value="{{tempQty}}" bindinput="onTempInput" data-field="tempQty" />
+    </view>
+    <view class="btn" bindtap="onSaveTemp">添加</view>
+  </view>
+</view>

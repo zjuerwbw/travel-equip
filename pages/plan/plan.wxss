@@ -1,0 +1,2 @@
+.tab-bar { padding: 20rpx; white-space: nowrap; }
+.plan-item .p-name { font-size: 32rpx; font-weight: 600; }

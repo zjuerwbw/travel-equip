@@ -1,0 +1,37 @@
+<view class="card" wx:if="{{plan}}">
+  <view class="row between">
+    <text class="r-title">{{plan.name}}</text>
+  </view>
+  <view class="row between r-sums">
+    <view><text class="muted">计划总重</text><view class="r-num">{{planTotal}}</view></view>
+    <view><text class="muted">实际总重</text><view class="r-num">{{actualTotal}}</view></view>
+    <view><text class="muted">差异</text><view class="r-num diff">{{diff}}</view></view>
+  </view>
+  <view class="muted" wx:if="{{unusedCount}}">😴 没用到 {{unusedCount}} 件，合计 {{unusedWeight}}，下次考虑精简</view>
+</view>
+
+<view class="card item-card" wx:for="{{items}}" wx:key="itemId">
+  <view class="row between">
+    <view class="row">
+      <text class="i-name">{{item.catIcon}} {{item.name}}</text>
+      <text class="tag">{{item.tagName}}</text>
+    </view>
+    <text class="muted">计划 {{item.qty}}×{{item.weightG}}g</text>
+  </view>
+  <view class="row i-ops">
+    <text class="muted">实际数量</text>
+    <input class="mini-input" type="number" value="{{item.actualQtyStr}}" bindblur="onActualQty" data-id="{{item.itemId}}" />
+    <text class="muted">实际单重g</text>
+    <input class="mini-input" type="digit" value="{{item.actualWeightStr}}" bindblur="onActualWeight" data-id="{{item.itemId}}" />
+  </view>
+  <view class="row wrap" style="margin-top:14rpx">
+    <view class="chip {{item.mark === m.key ? 'active' : ''}}"
+      wx:for="{{marks}}" wx:for-item="m" wx:key="key"
+      bindtap="onMark" data-id="{{item.itemId}}" data-key="{{m.key}}">{{m.label}}</view>
+  </view>
+  <input class="input" style="margin-top:14rpx" placeholder="一句话复盘（选填）" value="{{item.note}}" bindblur="onNote" data-id="{{item.itemId}}" />
+</view>
+
+<view class="card">
+  <view class="btn" bindtap="onSave">提交复盘</view>
+</view>

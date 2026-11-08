@@ -1,0 +1,11 @@
+.hello-title { font-size: 36rpx; font-weight: 700; margin-bottom: 8rpx; }
+.stats { margin: 0 20rpx; }
+.stat { flex: 1; margin: 0; text-align: center; padding: 28rpx 12rpx; }
+.stat + .stat { margin-left: 16rpx; }
+.stat-num { font-size: 34rpx; font-weight: 700; color: #2f7d4f; margin-bottom: 6rpx; }
+.plan-name { font-size: 32rpx; font-weight: 600; }
+.empty-card { text-align: center; padding: 40rpx; }
+.quick { margin: 10rpx 20rpx; }
+.quick-btn { flex: 1; margin: 0; text-align: center; padding: 32rpx 0; }
+.quick-btn + .quick-btn { margin-left: 16rpx; }
+.q-icon { font-size: 48rpx; margin-bottom: 8rpx; }

@@ -1,0 +1,82 @@
+page {
+  background: #f5f6f8;
+  font-size: 28rpx;
+  color: #333;
+}
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+.row { display: flex; align-items: center; }
+.between { justify-content: space-between; }
+.wrap { flex-wrap: wrap; }
+.col { flex: 1; }
+.grow { flex-grow: 1; }
+.input {
+  background: #f5f6f8;
+  border-radius: 12rpx;
+  padding: 16rpx 20rpx;
+  font-size: 28rpx;
+}
+.label { color: #888; font-size: 24rpx; margin: 24rpx 4rpx 8rpx; display: block; }
+.btn {
+  background: #2f7d4f;
+  color: #fff;
+  border-radius: 12rpx;
+  padding: 22rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 24rpx;
+}
+.btn-plain { background: #fff; color: #2f7d4f; border: 2rpx solid #2f7d4f; }
+.btn-danger { background: #fff; color: #e5484d; border: 2rpx solid #e5484d; }
+.btn-warn { background: #fff; color: #d97706; border: 2rpx solid #d97706; }
+.btn.disabled { opacity: 0.5; }
+.chip {
+  padding: 10rpx 26rpx;
+  border-radius: 30rpx;
+  background: #fff;
+  margin-right: 16rpx;
+  font-size: 24rpx;
+  color: #555;
+  border: 2rpx solid #ececec;
+  display: inline-block;
+  white-space: nowrap;
+}
+.chip.active { background: #2f7d4f; color: #fff; border-color: #2f7d4f; }
+.muted { color: #999; font-size: 24rpx; }
+.weight { color: #2f7d4f; font-weight: 600; }
+.tag {
+  font-size: 20rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 8rpx;
+  background: #eef5f0;
+  color: #2f7d4f;
+  margin-left: 10rpx;
+}
+.tag.gray { background: #f0f0f0; color: #888; }
+.tag.red { background: #fdecec; color: #e5484d; }
+.tag.orange { background: #fef3e2; color: #d97706; }
+.section-title { font-weight: 600; margin: 28rpx 24rpx 8rpx; font-size: 30rpx; }
+.divider { height: 2rpx; background: #f2f2f2; margin: 20rpx 0; }
+.empty { text-align: center; color: #bbb; padding: 100rpx 0; font-size: 26rpx; }
+.empty .icon { font-size: 80rpx; display: block; margin-bottom: 16rpx; }
+.fab {
+  position: fixed;
+  right: 32rpx;
+  bottom: 60rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  background: #2f7d4f;
+  color: #fff;
+  font-size: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 20rpx rgba(47, 125, 79, 0.35);
+  z-index: 10;
+}

@@ -1,0 +1,65 @@
+<view class="card">
+  <text class="label">计划名称 *</text>
+  <input class="input" placeholder="默认自动填充，可修改" value="{{name}}" bindinput="onInput" data-field="name" />
+
+  <text class="label">出行类型 *</text>
+  <picker range="{{tripTypes}}" bindchange="onType">
+    <view class="input">{{typeIndex > -1 ? tripTypes[typeIndex] : '请选择类型'}}</view>
+  </picker>
+
+  <text class="label">目的地 *</text>
+  <input class="input" placeholder="如：四姑娘山二峰" value="{{destination}}" bindinput="onInput" data-field="destination" />
+
+  <text class="label">目的地海拔（米）</text>
+  <input class="input" type="digit" placeholder="如 5276" value="{{altitude}}" bindinput="onAlt" />
+  <view class="alt-warn" wx:if="{{altWarn}}">⛰️ 海拔 ≥ 3500m，请注意高原反应与保暖装备</view>
+
+  <view class="row">
+    <view class="col" style="margin-right:16rpx">
+      <text class="label">出发日期 *</text>
+      <picker mode="date" value="{{startDate}}" bindchange="onDate" data-field="startDate">
+        <view class="input">{{startDate || '请选择'}}</view>
+      </picker>
+    </view>
+    <view class="col">
+      <text class="label">结束日期</text>
+      <picker mode="date" value="{{endDate}}" bindchange="onDate" data-field="endDate">
+        <view class="input">{{endDate || '同出发日'}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="row">
+    <view class="col" style="margin-right:16rpx">
+      <text class="label">出发时间</text>
+      <picker mode="time" value="{{departureTime}}" bindchange="onTime">
+        <view class="input">{{departureTime}}</view>
+      </picker>
+    </view>
+    <view class="col">
+      <text class="label">行程天数</text>
+      <view class="input readonly">{{days ? days + ' 天' : '自动计算'}}</view>
+    </view>
+  </view>
+
+  <view class="row">
+    <view class="col" style="margin-right:16rpx">
+      <text class="label">预计气温低（℃）</text>
+      <input class="input" type="digit" placeholder="如 -5" value="{{tempLow}}" bindinput="onInput" data-field="tempLow" />
+    </view>
+    <view class="col">
+      <text class="label">预计气温高（℃）</text>
+      <input class="input" type="digit" placeholder="如 10" value="{{tempHigh}}" bindinput="onInput" data-field="tempHigh" />
+    </view>
+  </view>
+
+  <text class="label">预计总负重上限（kg，选填）</text>
+  <input class="input" type="digit" placeholder="如 12，打包超重时预警" value="{{maxLoadKg}}" bindinput="onInput" data-field="maxLoadKg" />
+
+  <text class="label">备注（路线/水源/营地/撤离点）</text>
+  <textarea class="input remark" value="{{remark}}" bindinput="onInput" data-field="remark" maxlength="500" />
+</view>
+
+<view class="card">
+  <view class="btn" bindtap="onSave">保存</view>
+</view>
