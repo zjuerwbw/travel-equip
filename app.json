@@ -11,16 +11,17 @@
     "pages/mine/mine"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#2f7d4f",
+    "navigationBarBackgroundColor": "#f7f8fa",
     "navigationBarTitleText": "户外装备管家",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#f5f6f8",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f2f4f7",
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#2f7d4f",
+    "color": "#8e8e93",
+    "selectedColor": "#32ade6",
     "backgroundColor": "#ffffff",
+    "borderStyle": "white",
     "list": [
       { "pagePath": "pages/index/index", "text": "首页" },
       { "pagePath": "pages/gear/gear", "text": "装备库" },

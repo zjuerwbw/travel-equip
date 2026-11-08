@@ -1,14 +1,16 @@
 page {
-  background: #f5f6f8;
+  background: #f2f4f7;
   font-size: 28rpx;
-  color: #333;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 .card {
-  background: #fff;
-  border-radius: 16rpx;
-  padding: 24rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 30rpx;
   margin: 20rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4rpx 20rpx rgba(29, 78, 116, 0.05);
 }
 .row { display: flex; align-items: center; }
 .between { justify-content: space-between; }
@@ -16,67 +18,78 @@ page {
 .col { flex: 1; }
 .grow { flex-grow: 1; }
 .input {
-  background: #f5f6f8;
-  border-radius: 12rpx;
-  padding: 16rpx 20rpx;
+  background: #f5f7fa;
+  border-radius: 16rpx;
+  padding: 20rpx 24rpx;
   font-size: 28rpx;
+  color: #1d1d1f;
 }
-.label { color: #888; font-size: 24rpx; margin: 24rpx 4rpx 8rpx; display: block; }
+.label { color: #86868b; font-size: 24rpx; margin: 26rpx 6rpx 10rpx; display: block; }
 .btn {
-  background: #2f7d4f;
-  color: #fff;
-  border-radius: 12rpx;
-  padding: 22rpx;
+  background: #32ade6;
+  color: #ffffff;
+  border-radius: 20rpx;
+  padding: 24rpx;
   text-align: center;
   font-size: 30rpx;
+  font-weight: 500;
   margin-top: 24rpx;
+  transition: opacity 0.15s;
 }
-.btn-plain { background: #fff; color: #2f7d4f; border: 2rpx solid #2f7d4f; }
-.btn-danger { background: #fff; color: #e5484d; border: 2rpx solid #e5484d; }
-.btn-warn { background: #fff; color: #d97706; border: 2rpx solid #d97706; }
-.btn.disabled { opacity: 0.5; }
+.btn:active { opacity: 0.8; }
+.btn-plain { background: #e8f5fd; color: #1c87d6; border: none; }
+.btn-danger { background: #feeeee; color: #ff3b30; border: none; }
+.btn-warn { background: #fff4e5; color: #ff9500; border: none; }
+.btn.disabled { opacity: 0.4; }
 .chip {
-  padding: 10rpx 26rpx;
-  border-radius: 30rpx;
-  background: #fff;
+  padding: 12rpx 28rpx;
+  border-radius: 999rpx;
+  background: #ffffff;
   margin-right: 16rpx;
   font-size: 24rpx;
-  color: #555;
-  border: 2rpx solid #ececec;
+  color: #6e6e73;
+  border: 2rpx solid #e8eaee;
   display: inline-block;
   white-space: nowrap;
+  transition: all 0.15s;
 }
-.chip.active { background: #2f7d4f; color: #fff; border-color: #2f7d4f; }
-.muted { color: #999; font-size: 24rpx; }
-.weight { color: #2f7d4f; font-weight: 600; }
+.chip.active {
+  background: #32ade6;
+  color: #ffffff;
+  border-color: #32ade6;
+  font-weight: 500;
+}
+.muted { color: #86868b; font-size: 24rpx; }
+.weight { color: #1c87d6; font-weight: 600; }
 .tag {
   font-size: 20rpx;
-  padding: 4rpx 14rpx;
-  border-radius: 8rpx;
-  background: #eef5f0;
-  color: #2f7d4f;
-  margin-left: 10rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 10rpx;
+  background: #e8f5fd;
+  color: #1c87d6;
+  margin-left: 12rpx;
 }
-.tag.gray { background: #f0f0f0; color: #888; }
-.tag.red { background: #fdecec; color: #e5484d; }
-.tag.orange { background: #fef3e2; color: #d97706; }
-.section-title { font-weight: 600; margin: 28rpx 24rpx 8rpx; font-size: 30rpx; }
-.divider { height: 2rpx; background: #f2f2f2; margin: 20rpx 0; }
-.empty { text-align: center; color: #bbb; padding: 100rpx 0; font-size: 26rpx; }
-.empty .icon { font-size: 80rpx; display: block; margin-bottom: 16rpx; }
+.tag.gray { background: #f2f2f5; color: #86868b; }
+.tag.red { background: #feeeee; color: #ff3b30; }
+.tag.orange { background: #fff4e5; color: #ff9500; }
+.section-title { font-weight: 600; margin: 30rpx 26rpx 8rpx; font-size: 30rpx; color: #1d1d1f; }
+.divider { height: 2rpx; background: #f0f1f4; margin: 22rpx 0; }
+.empty { text-align: center; color: #b9bdc4; padding: 110rpx 0; font-size: 26rpx; }
+.empty .icon { font-size: 84rpx; display: block; margin-bottom: 20rpx; }
 .fab {
   position: fixed;
-  right: 32rpx;
-  bottom: 60rpx;
-  width: 110rpx;
-  height: 110rpx;
+  right: 36rpx;
+  bottom: 64rpx;
+  width: 112rpx;
+  height: 112rpx;
   border-radius: 50%;
-  background: #2f7d4f;
-  color: #fff;
-  font-size: 60rpx;
+  background: #32ade6;
+  color: #ffffff;
+  font-size: 56rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8rpx 20rpx rgba(47, 125, 79, 0.35);
+  box-shadow: 0 10rpx 28rpx rgba(50, 173, 230, 0.4);
   z-index: 10;
 }
+.fab:active { opacity: 0.85; }

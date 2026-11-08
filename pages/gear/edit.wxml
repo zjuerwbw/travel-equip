@@ -43,7 +43,7 @@
       <text class="label" style="margin-top:0">是否消耗品</text>
       <view class="input row between" style="height:80rpx;box-sizing:border-box">
         <text class="muted">{{isConsumable ? '是（食物/水/燃料等）' : '否'}}</text>
-        <switch checked="{{isConsumable}}" bindchange="onConsumable" color="#2f7d4f" />
+        <switch checked="{{isConsumable}}" bindchange="onConsumable" color="#32ade6" />
       </view>
     </view>
   </view>

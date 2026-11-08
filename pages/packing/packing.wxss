@@ -9,22 +9,22 @@
   padding: 8rpx 12rpx; margin: 0 8rpx; text-align: center; font-size: 26rpx;
 }
 .i-ops2 { margin-top: 14rpx; }
-.over-warn { color: #e5484d; font-size: 26rpx; text-align: center; }
+.over-warn { color: #ff3b30; font-size: 26rpx; text-align: center; }
 .summary-bar {
-  position: fixed; left: 0; right: 0; bottom: 200rpx;
+  position: fixed; left: 0; right: 0; bottom: 200rpx; border-radius: 28rpx 28rpx 0 0;
   background: #fff; padding: 20rpx 32rpx; box-shadow: 0 -4rpx 16rpx rgba(0,0,0,0.06);
   z-index: 5;
 }
 .s-label { color: #999; font-size: 22rpx; margin-right: 8rpx; }
-.s-total { color: #2f7d4f; font-size: 36rpx; font-weight: 700; }
+.s-total { color: #32ade6; font-size: 36rpx; font-weight: 700; }
 .s-right { text-align: right; font-size: 24rpx; }
-.s-base { color: #2f7d4f; font-weight: 600; margin-right: 16rpx; }
-.s-consum { color: #d97706; font-weight: 600; }
+.s-base { color: #32ade6; font-weight: 600; margin-right: 16rpx; }
+.s-consum { color: #ff9500; font-weight: 600; }
 .cats { border-top: 2rpx solid #f2f2f2; margin-top: 16rpx; padding-top: 16rpx; }
 .cat-row { display: flex; align-items: center; margin-bottom: 10rpx; }
 .cat-name { width: 140rpx; font-size: 24rpx; }
 .cat-bar-bg { flex: 1; height: 14rpx; background: #f0f0f0; border-radius: 8rpx; overflow: hidden; }
-.cat-bar-fill { height: 100%; background: #2f7d4f; border-radius: 8rpx; }
+.cat-bar-fill { height: 100%; background: #32ade6; border-radius: 8rpx; }
 .cat-w { width: 170rpx; text-align: right; font-size: 22rpx; color: #666; }
 .actions { padding: 20rpx 20rpx 220rpx; }
 .mask {
@@ -32,7 +32,7 @@
   display: flex; align-items: flex-end;
 }
 .sheet {
-  background: #fff; width: 100%; border-radius: 24rpx 24rpx 0 0;
+  background: #ffffff; width: 100%; border-radius: 32rpx 32rpx 0 0;
   padding: 32rpx; box-sizing: border-box;
 }
 .sheet.small { padding-bottom: 60rpx; }

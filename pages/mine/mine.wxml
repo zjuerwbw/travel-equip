@@ -29,6 +29,6 @@
   </view>
   <view class="divider"></view>
   <view class="m-row row between" bindtap="onClear">
-    <text style="color:#e5484d">🗑 清空所有数据</text>
+    <text style="color:#ff3b30">🗑 清空所有数据</text>
   </view>
 </view>

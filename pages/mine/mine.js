@@ -21,7 +21,7 @@ Page({
     wx.showModal({
       title: '清空所有数据',
       content: '将删除全部装备、计划与打包数据，且无法恢复。确定继续吗？',
-      confirmColor: '#e5484d',
+      confirmColor: '#ff3b30',
       success: (r) => {
         if (r.confirm) {
           store.clearAll();
